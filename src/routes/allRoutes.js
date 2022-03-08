@@ -113,7 +113,10 @@ import PagesGallery from "../pages/Utility/PagesGallery";
 import PagesDirectory from "../pages/Utility/PagesDirectory";
 
 //Customer
-import Customer from "pages/Customer/Customer"
+import Customer from "pages/Customer/Customer";
+
+//Package
+import Package from "pages/Package/Package"
 
 const userRoutes = [
   { path: "/dashboard", component: Dashboard },
@@ -203,6 +206,9 @@ const userRoutes = [
 
   //Customer
   { path: "/customer", component: Customer },
+
+  //Package
+  { path: "/package", component: Package },
 
   // this route should be at the end of all other routes
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },

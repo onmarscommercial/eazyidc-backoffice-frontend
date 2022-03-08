@@ -462,7 +462,7 @@ const SidebarContent = props => {
             </li>
 
             <li>
-              <Link to="/#" className="waves-effect">
+              <Link to="/package" className="waves-effect">
                 <i className="ti-package"></i>
                 <span>Package</span>
               </Link>

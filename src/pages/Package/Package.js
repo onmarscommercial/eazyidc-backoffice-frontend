@@ -4,7 +4,7 @@ import { MDBDataTable } from "mdbreact";
 
 import { Container, Row, Col, Button } from "reactstrap"
 
-const Customer = () => {
+const Package = () => {
   const data = {
     columns: [
       {
@@ -25,17 +25,17 @@ const Customer = () => {
     <React.Fragment>
       <div className="page-content">
       <MetaTags>
-        <title>Customer</title>
+        <title>Package</title>
       </MetaTags>
       <Container fluid>
         <div className="page-title-box">
           <Row className="align-items-center">
             <Col md={8}>
-              <h6 className="page-title">Customer</h6>
+              <h6 className="page-title">Package</h6>
             </Col>
             <Col md={4} >
               <div className="float-end">
-                <Button color="primary" outline className="waves-effect">Add Customer</Button>
+                <Button color="primary" outline className="waves-effect">Add Package</Button>
               </div>
             </Col>
           </Row>
@@ -51,4 +51,4 @@ const Customer = () => {
   )
 }
 
-export default Customer
+export default Package
