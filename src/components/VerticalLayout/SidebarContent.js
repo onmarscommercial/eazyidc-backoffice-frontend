@@ -467,6 +467,46 @@ const SidebarContent = props => {
                 <span>Package</span>
               </Link>
             </li>
+
+            <li className="menu-title">Report</li>
+
+            <li>
+              <Link to="/#" className="has-arrow waves-effect">
+                <i className="fas fa-file-alt"></i>
+                <span>Report</span>
+              </Link>
+              <ul className="sub-menu" aria-expanded="true">
+                <li>
+                  <Link to="/#">
+                    <span>Monthly Sales Report</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/#">
+                    <span>Yearly Sales Report</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/#">
+                    <span>Customer Report</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/#">
+                    <span>Server Report</span>
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+            <li className="menu-title">Employee</li>
+
+            <li>
+              <Link to="/employee" className="waves-effect">
+                <i className="dripicons-user-group"></i>
+                <span>Employee</span>
+              </Link>
+            </li>
           </ul>
         </div>
       </SimpleBar>

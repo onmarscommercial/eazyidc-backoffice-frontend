@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { MetaTags } from "react-meta-tags";
 import { MDBDataTable } from "mdbreact";
 
-import { Container, Row, Col, Button } from "reactstrap"
+import { Container, Row, Col, Button, Modal } from "reactstrap"
 
 const Customer = () => {
+  const [addCustomerModal, setCustomerModal] = useState(false)
+
+  function toggleCustomerModal() {
+    setCustomerModal(!addCustomerModal)
+    removeBodyCss
+  } 
+
+  function removeBodyCss() {
+    document.body.classList.add("no_padding")
+  }
+
   const data = {
     columns: [
       {
@@ -35,7 +46,27 @@ const Customer = () => {
             </Col>
             <Col md={4} >
               <div className="float-end">
-                <Button color="primary" outline className="waves-effect">Add Customer</Button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary waves-effect waves-light" 
+                  data-toggle="modal" 
+                  data-target="#customerModal" 
+                  onClick={() => {toggleCustomerModal()}}>
+                  Add Customer
+                </button>
+                <Modal isOpen={addCustomerModal} toggle={() => {toggleCustomerModal()}}>
+                  <div className="modal-header">
+                    <h5 className="modal-title mt-0" id="customerModal">Add Customer</h5>
+                    <button 
+                      type="button" 
+                      className="close" 
+                      data-dismiss="modal" 
+                      aria-label="Close" 
+                      onClick={() => {setCustomerModal(false)}}>
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                </Modal>
               </div>
             </Col>
           </Row>
