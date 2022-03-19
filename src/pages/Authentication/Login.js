@@ -1,38 +1,64 @@
 import PropTypes from 'prop-types'
 import MetaTags from 'react-meta-tags';
-import React from "react"
+import React, { useState } from "react"
 
 import { Row, Col, CardBody, Card, Alert, Container } from "reactstrap"
+import AuthService from "../../services/auth"
 
 // Redux
 import { connect } from "react-redux"
-import { withRouter, Link } from "react-router-dom"
+import { withRouter, Link, useHistory } from "react-router-dom"
+import SweetAlert from 'react-bootstrap-sweetalert';
+import Swal from "sweetalert2"
 
 // availity-reactstrap-validation
-import { AvForm, AvField } from "availity-reactstrap-validation"
+// import { AvForm, AvField } from "availity-reactstrap-validation"
 
 // actions
-import { loginUser, apiError } from "../../store/actions"
+// import { loginUser, apiError } from "../../store/actions"
 
 // import images
-import logoSm from "../../assets/images/logo-sm.png";
+// import logoSm from "../../assets/images/logo-sm.png";
 
-const Login = props => {
-  // handleValidSubmit
-  const handleValidSubmit = (event, values) => {
-    props.loginUser(values, props.history)
+const Login = () => {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+
+  let history = useHistory()
+
+  const handleLogin = e => {
+    e.preventDefault();
+
+    AuthService.login(username, password).then(() => {
+      let resultLogin = AuthService.getResultLogin()
+      let loginSuccess = resultLogin.message
+      if (resultLogin.code === 0) {
+        Swal.fire({
+          icon: "success",
+          title: loginSuccess,
+          timer: 5000
+        })
+        history.push("/dashboard")
+        window.location.reload()
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: resultLogin.message
+        })
+      }
+    })
   }
 
   return (
     <React.Fragment>
       <MetaTags>
-        <title>Login | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
+        <title>Login | Backoffice EazyIDC</title>
       </MetaTags>
-      <div className="home-btn d-none d-sm-block">
+      {/* <div className="home-btn d-none d-sm-block">
         <Link to="/" className="text-dark">
           <i className="fas fa-home h2" />
         </Link>
-      </div>
+      </div> */}
       <div className="account-pages my-5 pt-sm-5">
         <Container>
           <Row className="justify-content-center">
@@ -44,17 +70,17 @@ const Login = props => {
                       Welcome Back !
                         </h5>
                     <p className="text-white-50">
-                      Sign in to continue to Veltrix.
+                      Sign in to continue to Backoffice EazyIDC.
                         </p>
-                    <Link to="/" className="logo logo-admin">
+                    {/* <Link to="/" className="logo logo-admin">
                       <img src={logoSm} height="24" alt="logo" />
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
 
                 <CardBody className="p-4">
                   <div className="p-3">
-                    <AvForm
+                    {/* <AvForm
                       className="form-horizontal mt-4"
                       onValidSubmit={(e, v) => {
                         handleValidSubmit(e, v)
@@ -112,11 +138,26 @@ const Login = props => {
                         </div>
                       </Row>
                       
-                    </AvForm>
+                    </AvForm> */}
+                    <form onSubmit={handleLogin} className="form-horizontal">
+                      <div className="mb-3">
+                        <label className='col-form-label'>Username</label>
+                        <input type="text" className='form-control' value={username} onChange={e => setUsername(e.target.value)} />
+                      </div>
+
+                      <div className='mb-3'>
+                        <label className='col-form-label'>Password</label>
+                        <input type='password' className='form-control' value={password} onChange={e => setPassword(e.target.value)} />
+                      </div>
+
+                      <div className='mt-4'>
+                      <button type='submit' className='btn btn-primary w-md waves-effect waves-light float-end'>Log In</button>
+                      </div>
+                    </form>
                   </div>
                 </CardBody>
               </Card>
-              <div className="mt-5 text-center">
+              {/* <div className="mt-5 text-center">
                 <p>
                   Don&#39;t have an account ?{" "}
                   <Link
@@ -131,7 +172,7 @@ const Login = props => {
                   © {new Date().getFullYear()} Veltrix. Crafted with{" "}
                   <i className="mdi mdi-heart text-danger" /> by Themesbrand
                 </p>
-              </div>
+              </div> */}
             </Col>
           </Row>
         </Container>
@@ -140,17 +181,19 @@ const Login = props => {
   )
 }
 
-const mapStateToProps = state => {
-  const { error } = state.Login
-  return { error }
-}
+export default Login
 
-export default withRouter(
-  connect(mapStateToProps, { loginUser, apiError })(Login)
-)
+// const mapStateToProps = state => {
+//   const { error } = state.Login
+//   return { error }
+// }
 
-Login.propTypes = {
-  error: PropTypes.any,
-  history: PropTypes.object,
-  loginUser: PropTypes.func,
-}
+// export default withRouter(
+//   connect(mapStateToProps, { loginUser, apiError })(Login)
+// )
+
+// Login.propTypes = {
+//   error: PropTypes.any,
+//   history: PropTypes.object,
+//   loginUser: PropTypes.func,
+// }

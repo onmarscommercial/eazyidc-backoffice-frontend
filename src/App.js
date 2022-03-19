@@ -21,7 +21,8 @@ import "./assets/scss/theme.scss"
 // Import Firebase Configuration file
 // import { initFirebaseBackend } from "./helpers/firebase_helper"
 
-//import fakeBackend from "./helpers/AuthType/fakeBackend"
+// import fakeBackend from "./helpers/AuthType/fakeBackend"
+import AuthService from "./services/auth"
 
 // Activating fake backend
 //fakeBackend()
@@ -41,7 +42,6 @@ import "./assets/scss/theme.scss"
 // initFirebaseBackend(firebaseConfig)
 
 const App = props => {
-
   function getLayout() {
     let layoutCls = VerticalLayout
     switch (props.layout.layoutType) {
@@ -56,6 +56,8 @@ const App = props => {
   }
 
   const Layout = getLayout()
+  const getStatusLogin = AuthService.getStatusLogin()
+
   return (
     <React.Fragment>
       <Router>
@@ -76,7 +78,7 @@ const App = props => {
               layout={Layout}
               component={route.component}
               key={idx}
-              isAuthProtected={true}
+              isAuthProtected={getStatusLogin}
               exact
             />
           ))}

@@ -2,15 +2,32 @@ import React, { useEffect, useState } from "react";
 import { MetaTags } from "react-meta-tags";
 import { MDBDataTable } from "mdbreact";
 
-import { Container, Row, Col, Button } from "reactstrap"
+import { Container, Row, Col, Button, Modal } from "reactstrap"
 import UserService from '../../services/user'
 
 const Package = () => {
   const [packageList, setPackageList] = useState([])
+  const [addPackageModal, setPackageModal] = useState(false)
+  const [cpuUnit, setCpuUnit] = useState("")
+  const [memoryUnit, setMemoryUnit] = useState("")
+  const [ssdUnit, setSsdUnit] = useState("")
+  const [transferUnit, setTransferUnit] = useState("")
+  const [price, setPrice] = useState("")
+  const [ssdType, setSsdType] = useState("")
+  const [status, setStatus] = useState("")
 
   useEffect(() => {
     getPackage()
   }, [])
+
+  function togglePackageModal() {
+    setPackageModal(!addPackageModal)
+    removeBodyCss
+  }
+
+  function removeBodyCss() {
+    document.body.classList.add("no_padding")
+  }
 
   const getPackage = () => {
     UserService.getPackageList().then((res) => {
@@ -21,41 +38,53 @@ const Package = () => {
     })
   }
 
+  const handleAddPackage = e => {
+    e.preventDefault();
+
+    console.log("submit")
+    togglePackageModal()
+  }
+
   const datatable = {
     columns: [
       {
-        label: "packageId",
+        label: "รหัสแพ็คเกจ",
         field: "packageId",
         sort: "src",
         width: 150
       },
       {
-        label: "cpu_unit",
+        label: "CPU Unit",
         field: "cpu_unit",
         sort: "src",
       },
       {
-        label: "memory_unit",
+        label: "Memory Unit",
         field: "memory_unit",
         sort: "src",
       },
       {
-        label: "ssd_unit",
+        label: "SSD Unit",
         field: "ssd_unit",
         sort: "src",
       },
       {
-        label: "transfer_unit",
+        label: "Transfer Unit",
         field: "transfer_unit",
         sort: "src",
       },
       {
-        label: "price",
+        label: "Price",
         field: "price",
         sort: "src",
       },
       {
-        label: "status",
+        label: "SSD Type",
+        field: "ssd_type",
+        sort: "src",
+      },
+      {
+        label: "Status",
         field: "status",
         sort: "src",
       },
@@ -68,6 +97,7 @@ const Package = () => {
         ssd_unit: packageLists.ssd_unit,
         transfer_unit: packageLists.transfer_unit,
         price: packageLists.price,
+        ssd_type: packageLists.ssd_type,
         status: packageLists.status === 1 ? "Active" : "Inactive"
       }
     })
@@ -87,7 +117,84 @@ const Package = () => {
             </Col>
             <Col md={4} >
               <div className="float-end">
-                <Button color="primary" outline className="waves-effect">Add Package</Button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary waves-effect waves-light"
+                  data-toggle="modal"
+                  data-target="#packageModal"
+                  onClick={() => {togglePackageModal()}}>
+                  Add Package
+                </button>
+                <Modal isOpen={addPackageModal} toggle={() => {togglePackageModal()}}>
+                  <form onSubmit={handleAddPackage}>
+                    <div className="modal-header">
+                      <h5 className="modal-title mt-0" id="packageModal">Add Package</h5>
+                      <button 
+                        type="button" 
+                        className="close" 
+                        data-dismiss="modal" 
+                        aria-label="Close"
+                        onClick={() => {setPackageModal(false)}}>
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div className="modal-body">
+                      <Row className="mb-3">
+                        <label className="col-md-3 col-form-label">CPU Unit</label>
+                        <div className="col-md-9">
+                          <input type="text" className="form-control" value={cpuUnit} onChange={e => setCpuUnit(e.target.value)}/>
+                        </div>
+                      </Row>
+
+                      <Row className="mb-3">
+                        <label className="col-md-3 col-form-label">Memory Unit</label>
+                        <div className="col-md-9">
+                          <input type="text" className="form-control" value={memoryUnit} onChange={e => setMemoryUnit(e.target.value)}/>
+                        </div>
+                      </Row>
+
+                      <Row className="mb-3">
+                        <label className="col-md-3 col-form-label">SSD Unit</label>
+                        <div className="col-md-9">
+                          <input type="text" className="form-control" value={ssdUnit} onChange={e => setSsdUnit(e.target.value)}/>
+                        </div>
+                      </Row>
+
+                      <Row className="mb-3">
+                        <label className="col-md-3 col-form-label">Transfer Unit</label>
+                        <div className="col-md-9">
+                          <input type="text" className="form-control" value={transferUnit} onChange={e => setTransferUnit(e.target.value)}/>
+                        </div>
+                      </Row>
+
+                      <Row className="mb-3">
+                        <label className="col-md-3 col-form-label">Price</label>
+                        <div className="col-md-9">
+                          <input type="text" className="form-control" value={price} onChange={e => setPrice(e.target.value)}/>
+                        </div>
+                      </Row>
+
+                      <Row className="mb-3">
+                        <label className="col-md-3 col-form-label">SSD Type</label>
+                        <div className="col-md-9">
+                          <input type="text" className="form-control" value={ssdType} onChange={e => setSsdType(e.target.value)}/>
+                        </div>
+                      </Row>
+
+                      <Row className="mb-3">
+                        <label className="col-md-3 col-form-label">Status</label>
+                        <div className="col-md-9">
+                          <input type="text" className="form-control" value={status} onChange={e => setStatus(e.target.value)}/>
+                        </div>
+                      </Row>
+                      
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-secondary waves-effect" data-dismiss="modal" onClick={() => togglePackageModal()}>Close</button>
+                      <button type="submit" className="btn btn-primary waves-effect waves-light">Save</button>
+                    </div>
+                  </form>
+                </Modal>
               </div>
             </Col>
           </Row>

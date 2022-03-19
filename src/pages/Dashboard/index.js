@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React,{useState} from "react"
+import React,{useEffect, useState} from "react"
 import MetaTags from 'react-meta-tags';
 import {
   Container,
@@ -44,17 +44,26 @@ import "chartist/dist/scss/chartist.scss";
 
 //i18n
 import { withTranslation } from "react-i18next"
+import Swal from 'sweetalert2';
 
 const Dashboard = props => {
   const [menu, setMenu] = useState(false)
   const toggle = () => {
     setMenu(!menu)
   }
+
+  // useEffect(() => {
+  //   Swal.fire({
+  //     icon: "success",
+  //     title: "Success"
+  //   })
+  // }, [])
+
   return (
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Dashboard | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
+          <title>Dashboard | Backoffice EazyIDC</title>
         </MetaTags>
         <Container fluid>
           <div className="page-title-box">
@@ -62,7 +71,7 @@ const Dashboard = props => {
               <Col md={8}>
                 <h6 className="page-title">Dashboard</h6>
                 <ol className="breadcrumb m-0">
-                  <li className="breadcrumb-item active">Welcome to Veltrix Dashboard</li>
+                  <li className="breadcrumb-item active">Welcome to Backoffice EazyIDC Dashboard</li>
                 </ol>
               </Col>
 
