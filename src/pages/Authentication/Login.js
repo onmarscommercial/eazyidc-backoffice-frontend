@@ -36,7 +36,7 @@ const Login = () => {
         Swal.fire({
           icon: "success",
           title: loginSuccess,
-          timer: 5000
+          timer: 7000
         })
         history.push("/dashboard")
         window.location.reload()

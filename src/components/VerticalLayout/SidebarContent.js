@@ -477,22 +477,22 @@ const SidebarContent = props => {
               </Link>
               <ul className="sub-menu" aria-expanded="true">
                 <li>
-                  <Link to="/#">
+                  <Link to="/monthly-sales-report">
                     <span>Monthly Sales Report</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#">
+                  <Link to="/yearly-sales-report">
                     <span>Yearly Sales Report</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#">
+                  <Link to="/customer-report">
                     <span>Customer Report</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#">
+                  <Link to="/server-report">
                     <span>Server Report</span>
                   </Link>
                 </li>

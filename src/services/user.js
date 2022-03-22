@@ -6,8 +6,16 @@ class UserService {
     return axios.get("employee/customer", { headers: authHeader() })
   }
 
+  addCustomer(customerType, firstname, lastname, companyName, taxId, email, password, phone) {
+    return axios.post("employee/add-customer", { customerType, firstname, lastname, companyName, taxId, email, password, phone }, { headers: authHeader() })
+  }
+
   getPackageList() {
     return axios.get("employee/package", { headers: authHeader() })
+  }
+
+  addPackage(cpu_unit, memory_unit, ssd_unit, transfer_unit, price, ssd_type, status, createdBy) {
+    return axios.post("employee/add-package", { cpu_unit, memory_unit, ssd_unit, transfer_unit, price, ssd_type, status, createdBy }, { headers: authHeader() })
   }
 
   getEmployeeList() {

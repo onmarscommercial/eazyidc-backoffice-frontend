@@ -75,10 +75,20 @@ const Employee = () => {
   function toggleEmployeeModal() {
     setEmployeeModal(!addEmployeeModal)
     removeBodyCss
+    clearModal()
   }
 
   function removeBodyCss() {
     document.body.classList.add("no_padding")
+  }
+
+  const clearModal = () => {
+    setUsername("")
+    setPassword("")
+    setFirstname("")
+    setLastname("")
+    setRole(null)
+    setStatus(true)
   }
 
   const getEmployee = () => {
@@ -98,21 +108,10 @@ const Employee = () => {
 
     UserService.addEmployee(createdBy, username, password, firstname, lastname, role.value, status === true ? 1 : 0).then((res) => {
       if (res.data.code === 0) {
-        console.log("submit")
-        console.log(role.value)
-        console.log(status === true ? 1 : 0)
         toggleEmployeeModal()
-        setUsername("")
-        setPassword("")
-        setFirstname("")
-        setLastname("")
-        setRole(null)
-        setStatus(true)
         getEmployee()
       }
     })
-
-    
   }
 
   const datatable = {
@@ -253,7 +252,6 @@ const Employee = () => {
                             />
                           </div>
                         </Row>
-                        
                       </div>
                       <div className="modal-footer">
                         <button type="button" className="btn btn-secondary waves-effect" data-dismiss="modal" onClick={() => toggleEmployeeModal()}>Close</button>

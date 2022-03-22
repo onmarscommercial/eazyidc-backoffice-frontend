@@ -119,7 +119,13 @@ import Customer from "pages/Customer/Customer";
 import Package from "pages/Package/Package";
 
 //Employee
-import Employee from "pages/Employee/Employee"
+import Employee from "pages/Employee/Employee";
+
+//Report
+import MonthlySalesReport from "pages/Report/MonthlySalesReport"
+import YearlySalesReport from "pages/Report/YearlySalesReport"
+import CustomerReport from "pages/Report/CustomerReport"
+import ServerReport from "pages/Report/ServerReport"
 
 const userRoutes = [
   { path: "/dashboard", component: Dashboard },
@@ -215,6 +221,12 @@ const userRoutes = [
 
   //Employee
   { path: "/employee", component: Employee },
+
+  //Report
+  { path: "/monthly-sales-report", component: MonthlySalesReport },
+  { path: "/yearly-sales-report", component: YearlySalesReport },
+  { path: "/customer-report", component: CustomerReport },
+  { path: "/server-report", component: ServerReport },
 
   // this route should be at the end of all other routes
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },

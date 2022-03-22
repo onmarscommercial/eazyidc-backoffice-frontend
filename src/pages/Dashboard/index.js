@@ -14,7 +14,7 @@ import {
   DropdownItem,
   DropdownMenu
 } from "reactstrap"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 // Custom Scrollbar
 import SimpleBar from "simplebar-react";
@@ -46,18 +46,27 @@ import "chartist/dist/scss/chartist.scss";
 import { withTranslation } from "react-i18next"
 import Swal from 'sweetalert2';
 
+import AuthService from "../../services/auth"
+
 const Dashboard = props => {
   const [menu, setMenu] = useState(false)
+  const [currentUser, setCurrentUser] = useState(undefined)
+
+  let history = useHistory()
+
   const toggle = () => {
     setMenu(!menu)
   }
 
-  // useEffect(() => {
-  //   Swal.fire({
-  //     icon: "success",
-  //     title: "Success"
-  //   })
-  // }, [])
+  useEffect(() => {
+    let user = AuthService.getCurrentUser()
+    if (user) {
+      setCurrentUser(user)
+    } else {
+      history.push("/login")
+      window.location.reload()
+    }
+  }, [])
 
   return (
     <React.Fragment>
