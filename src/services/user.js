@@ -25,6 +25,10 @@ class UserService {
   addEmployee(createdBy, username, password, firstname, lastname, roleId, status) {
     return axios.post("employee/add-employee", {createdBy, username, password, firstname, lastname, roleId, status }, { headers: authHeader() })
   }
+
+  download(accountId) {
+    return axios.post("employee/download", { accountId }, { responseType: "blob" })
+  }
 }
 
 export default new UserService();

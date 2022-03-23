@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { MetaTags } from "react-meta-tags";
 import { MDBDataTable } from "mdbreact";
-import { Container, Row, Col, Button, Modal } from "reactstrap"
+import { Container, Row, Col, Button, Modal, Badge } from "reactstrap"
 import UserService from "../../services/user"
 import AuthService from "../../services/auth"
 import { useHistory } from "react-router-dom"
 import Swal from "sweetalert2";
+import FileDownload from "js-file-download"
 
 const Customer = () => {
   const [customerList, setCustomerList] = useState([])
@@ -77,6 +78,18 @@ const Customer = () => {
     setTaxId(formatTaxId)
   }
 
+  const downloadFile = accountId => {
+    console.log(accountId)
+
+    UserService.download(accountId).then((res) => {
+      let type = res.data.type
+      const typeSplit = type.split('/')
+      const newName = accountId + `.${typeSplit[1]}`
+      console.log(res.data)
+      FileDownload(res.data, newName)
+    })
+  }
+
   const handleAddCustomer = e => {
     e.preventDefault();
 
@@ -105,7 +118,7 @@ const Customer = () => {
         label: "Email",
         field: "email",
         sort: "src",
-        width: 150
+        width: 150,
       },
       {
         label: "Phone",
@@ -144,8 +157,14 @@ const Customer = () => {
         width: 150
       },
       {
-        label: "Tax ID",
-        field: "taxId",
+        label: "Status",
+        field: "status",
+        sort: "src",
+        width: 150
+      },
+      {
+        label: "File",
+        field: "file",
         sort: "src",
         width: 150
       },
@@ -160,6 +179,16 @@ const Customer = () => {
         lastname: customerLists.lastname,
         companyName: customerLists.companyName,
         taxId: customerLists.taxId,
+        status: customerLists.status === "WV" ? 
+                <Badge className="rounded-pill bg-warning p-2"><text className="fs-6">Waiting Verify Identity</text></Badge> : 
+                customerLists.status === "WA" ? 
+                <Badge className="rounded-pill bg-info p-2"><text className="fs-6">Waiting Approve</text></Badge> : 
+                customerLists.status === "A" ? 
+                <Badge className="rounded-pill bg-success p-2"><text className="fs-6">Approve</text></Badge> : 
+                <Badge className="rounded-pill bg-danger p-2"><text className="fs-6">Reject</text></Badge>,
+        file: <button type="button" className="btn" onClick={() => downloadFile(customerLists.accountId)}>
+                <i className="fas fa-file-download"></i>
+              </button>
       }
     })
   }
@@ -281,7 +310,7 @@ const Customer = () => {
           </Row>
           <Row className="mt-4">
             <Col className="col-12">
-              <MDBDataTable responsive bordered data={datatable} />
+              <MDBDataTable responsive bordered data={datatable} className="text-center"/>
             </Col>
           </Row>
         </div>
