@@ -117,7 +117,7 @@ const Employee = () => {
   const datatable = {
     columns: [
       {
-        label: "รหัสพนักงาน",
+        label: "Employee ID",
         field: "employeeId",
         sort: "src",
       },
@@ -127,27 +127,27 @@ const Employee = () => {
         sort: "src",
       },
       {
-        label: "ชื่อ",
+        label: "Firstname",
         field: "firstname",
         sort: "src",
       },
       {
-        label: "นามสกุล",
+        label: "Lastname",
         field: "lastname",
         sort: "src",
       },
       {
-        label: "สถานะ",
+        label: "Status",
         field: "status",
         sort: "src",
       },
       {
-        label: "createdBy",
+        label: "Created By",
         field: "createdBy",
         sort: "src",
       },
       {
-        label: "createdAt",
+        label: "Created At",
         field: "createdAt",
         sort: "src",
       },
@@ -184,12 +184,12 @@ const Employee = () => {
                     className="btn btn-outline-primary waves-effect waves-light"
                     data-toggle="modal"
                     data-target="#employeeModal"
-                    onClick={() => {toggleEmployeeModal()}}>เพิ่มพนักงาน
+                    onClick={() => {toggleEmployeeModal()}}>Add Employee
                   </button>
                   <Modal isOpen={addEmployeeModal} toggle={() => {toggleEmployeeModal()}}>
                     <form onSubmit={handleAddEmployee}>
                       <div className="modal-header">
-                        <h5 className="modal-title mt-0" id="employeeModal">เพิ่มพนักงาน</h5>
+                        <h5 className="modal-title mt-0" id="employeeModal">Add Employee</h5>
                         <button 
                           type="button" 
                           className="close" 
@@ -215,33 +215,33 @@ const Employee = () => {
                         </Row>
 
                         <Row className="mb-3">
-                          <label className="col-md-3 col-form-label">ชื่อ</label>
+                          <label className="col-md-3 col-form-label">Firstname</label>
                           <div className="col-md-9">
                             <input type="text" className="form-control" value={firstname} onChange={e => setFirstname(e.target.value)}/>
                           </div>
                         </Row>
 
                         <Row className="mb-3">
-                          <label className="col-md-3 col-form-label">นามสกุล</label>
+                          <label className="col-md-3 col-form-label">Lastname</label>
                           <div className="col-md-9">
                             <input type="text" className="form-control" value={lastname} onChange={e => setLastname(e.target.value)}/>
                           </div>
                         </Row>
 
                         <Row className="mb-3">
-                          <label className="col-md-3 col-form-label">ระดับ</label>
+                          <label className="col-md-3 col-form-label">Role</label>
                           <div className="col-md-9">
                             <Select 
                               value={role} 
                               onChange={setRole} 
                               options={roleOption}
-                              placeholder={'กรุณาเลือก'}
+                              placeholder={'Please Select'}
                             />
                           </div>
                         </Row>
 
                         <Row className="mb-3">
-                          <label className="col-md-3 col-form-label">สถานะ</label>
+                          <label className="col-md-3 col-form-label">Status</label>
                           <div className="col-md-9">
                             <Switch 
                               uncheckedIcon={<Offsymbol />} 

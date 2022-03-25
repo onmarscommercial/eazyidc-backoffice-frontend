@@ -14,7 +14,8 @@ import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu"
 import logodarkImg from "../../assets/images/logo-dark.png";
 import logosmImg from "../../assets/images/logo-sm.png";
 import logolightImg from "../../assets/images/logo-light.png";
-
+import logoImg from "../../assets/images/logo.png"
+import logoEazyidcsmImg from "../../assets/images/logo-eazyidc-sm.png"
 
 //i18n
 import { withTranslation } from "react-i18next"
@@ -86,10 +87,10 @@ const Header = props => {
 
               <Link to="/" className="logo logo-light">
                 <span className="logo-sm">
-                  <img src={logosmImg} alt="" height="22" />
+                  <img src={logoEazyidcsmImg} alt="" height="30" />
                 </span>
                 <span className="logo-lg">
-                  <img src={logolightImg} alt="" height="18" />
+                  <img src={logoImg} alt="" height="50" />
                 </span>
               </Link>
             </div>

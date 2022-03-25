@@ -180,15 +180,16 @@ const Customer = () => {
         companyName: customerLists.companyName,
         taxId: customerLists.taxId,
         status: customerLists.status === "WV" ? 
-                <Badge className="rounded-pill bg-warning p-2"><text className="fs-6">Waiting Verify Identity</text></Badge> : 
+                <Badge className="rounded-pill bg-warning p-2"><div className="fs-7">Waiting Verify Identity</div></Badge> : 
                 customerLists.status === "WA" ? 
-                <Badge className="rounded-pill bg-info p-2"><text className="fs-6">Waiting Approve</text></Badge> : 
+                <Badge className="rounded-pill bg-info p-2"><div className="fs-7">Waiting Approve</div></Badge> : 
                 customerLists.status === "A" ? 
-                <Badge className="rounded-pill bg-success p-2"><text className="fs-6">Approve</text></Badge> : 
-                <Badge className="rounded-pill bg-danger p-2"><text className="fs-6">Reject</text></Badge>,
-        file: <button type="button" className="btn" onClick={() => downloadFile(customerLists.accountId)}>
-                <i className="fas fa-file-download"></i>
-              </button>
+                <Badge className="rounded-pill bg-success p-2"><div className="fs-7">Approve</div></Badge> : 
+                <Badge className="rounded-pill bg-danger p-2"><div className="fs-7">Reject</div></Badge>,
+        file: customerLists.filepath !== null ? 
+                <button type="button" className="btn" onClick={() => downloadFile(customerLists.accountId)}>
+                  <i className="fas fa-file-download"></i> 
+                </button> : ""
       }
     })
   }

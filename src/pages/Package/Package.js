@@ -153,7 +153,7 @@ const Package = () => {
   const datatable = {
     columns: [
       {
-        label: "รหัสแพ็คเกจ",
+        label: "Package ID",
         field: "packageId",
         sort: "src",
         width: 150
@@ -179,17 +179,17 @@ const Package = () => {
         sort: "src",
       },
       {
-        label: "ราคา",
+        label: "Price",
         field: "price",
         sort: "src",
       },
       {
-        label: "ประเภท SSD",
+        label: "SSD Type",
         field: "ssd_type",
         sort: "src",
       },
       {
-        label: "สถานะ",
+        label: "Status",
         field: "status",
         sort: "src",
       },
@@ -218,7 +218,7 @@ const Package = () => {
         <div className="page-title-box">
           <Row className="align-items-center">
             <Col md={8}>
-              <h6 className="page-title">แพ็คเกจ</h6>
+              <h6 className="page-title">Package</h6>
             </Col>
             <Col md={4} >
               <div className="float-end">
@@ -228,12 +228,12 @@ const Package = () => {
                   data-toggle="modal"
                   data-target="#packageModal"
                   onClick={() => {togglePackageModal()}}>
-                  เพิ่มแพ็คเกจ
+                  Add Package
                 </button>
                 <Modal isOpen={addPackageModal} toggle={() => {togglePackageModal()}}>
                   <form onSubmit={handleAddPackage}>
                     <div className="modal-header">
-                      <h5 className="modal-title mt-0" id="packageModal">เพิ่มแพ็คเกจ</h5>
+                      <h5 className="modal-title mt-0" id="packageModal">Add Package</h5>
                       <button 
                         type="button" 
                         className="close" 
@@ -273,26 +273,26 @@ const Package = () => {
                       </Row>
 
                       <Row className="mb-3">
-                        <label className="col-md-3 col-form-label">ราคา</label>
+                        <label className="col-md-3 col-form-label">Price</label>
                         <div className="col-md-9">
                           <input type="text" pattern="[0-9]*" className="form-control" onInput={handleChangePrice} value={price} />
                         </div>
                       </Row>
 
                       <Row className="mb-3">
-                        <label className="col-md-3 col-form-label">ประเภท SSD</label>
+                        <label className="col-md-3 col-form-label">SSD Type</label>
                         <div className="col-md-9">
                           <Select 
                             value={ssdType}
                             onChange={setSsdType}
                             options={ssdTypeOption}
-                            placeholder={'กรุณาเลือก'}
+                            placeholder={'Please Select'}
                           />
                         </div>
                       </Row>
 
                       <Row className="mb-3">
-                        <label className="col-md-3 col-form-label">สถานะ</label>
+                        <label className="col-md-3 col-form-label">Status</label>
                         <div className="col-md-9">
                           <Switch 
                             uncheckedIcon={<Offsymbol />}
@@ -306,8 +306,8 @@ const Package = () => {
                       
                     </div>
                     <div className="modal-footer">
-                      <button type="button" className="btn btn-secondary waves-effect" data-dismiss="modal" onClick={() => togglePackageModal()}>ปิด</button>
-                      <button type="submit" className="btn btn-primary waves-effect waves-light">บันทึก</button>
+                      <button type="button" className="btn btn-secondary waves-effect" data-dismiss="modal" onClick={() => togglePackageModal()}>Close</button>
+                      <button type="submit" className="btn btn-primary waves-effect waves-light">Save</button>
                     </div>
                   </form>
                 </Modal>
