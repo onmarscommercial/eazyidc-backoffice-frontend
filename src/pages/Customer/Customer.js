@@ -168,6 +168,12 @@ const Customer = () => {
         sort: "src",
         width: 150
       },
+      {
+        label: "Verify",
+        field: "verify",
+        sort: "src",
+        width: 150
+      },
     ],
     rows: customerList.map(customerLists => {
       return {
@@ -189,7 +195,8 @@ const Customer = () => {
         file: customerLists.filepath !== null ? 
                 <button type="button" className="btn" onClick={() => downloadFile(customerLists.accountId)}>
                   <i className="fas fa-file-download"></i> 
-                </button> : ""
+                </button> : "",
+        verify: ""
       }
     })
   }

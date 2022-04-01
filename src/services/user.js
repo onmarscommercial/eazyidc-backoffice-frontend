@@ -14,8 +14,16 @@ class UserService {
     return axios.get("employee/package", { headers: authHeader() })
   }
 
-  addPackage(cpu_unit, memory_unit, ssd_unit, transfer_unit, price, ssd_type, status, createdBy) {
-    return axios.post("employee/add-package", { cpu_unit, memory_unit, ssd_unit, transfer_unit, price, ssd_type, status, createdBy }, { headers: authHeader() })
+  addPackage(packageCode, cpu_unit, memory_unit, ssd_unit, transfer_unit, price, ssd_type, amount, status, createdBy) {
+    return axios.post("employee/add-package", { packageCode, cpu_unit, memory_unit, ssd_unit, transfer_unit, price, ssd_type, amount, status, createdBy }, { headers: authHeader() })
+  }
+
+  getEditPackage(packageId) {
+    return axios.post("employee/get-edit-package", { packageId }, { headers: authHeader() })
+  }
+
+  editPackage(packageId, cpu_unit, memory_unit, ssd_unit, transfer_unit, price, ssd_type, amount, status, updatedBy) {
+    return axios.post("employee/edit-package", { packageId, cpu_unit, memory_unit, ssd_unit, transfer_unit, price, ssd_type, amount, status, updatedBy }, { headers: authHeader() })
   }
 
   getEmployeeList() {
