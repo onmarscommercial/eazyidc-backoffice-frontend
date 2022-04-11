@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 // //Import Scrollbar
 import SimpleBar from "simplebar-react"
@@ -12,8 +12,11 @@ import { Link } from "react-router-dom"
 //i18n
 import { withTranslation } from "react-i18next"
 
+import UserService from "../../services/user"
+
 const SidebarContent = props => {
   const ref = useRef()
+  const [wa_count, setWa_count] = useState("")
   // Use ComponentDidMount and ComponentDidUpdate method symultaniously
   useEffect(() => {
     const pathName = props.location.pathname
@@ -34,10 +37,12 @@ const SidebarContent = props => {
       }
     }
     initMenu()
+    getCountWaitApprove()
   }, [props.location.pathname])
 
   useEffect(() => {
     ref.current.recalculate()
+    getCountWaitApprove()
   })
 
   function scrollElement(item) {
@@ -85,6 +90,14 @@ const SidebarContent = props => {
     }
     scrollElement(item);
     return false
+  }
+
+  const getCountWaitApprove = () => {
+    UserService.getCountWaitApprove().then((res) => {
+      if (res.data.code === 0) {
+        setWa_count(res.data.result)
+      }
+    })
   }
 
   return (
@@ -455,10 +468,24 @@ const SidebarContent = props => {
             </li>
 
             <li>
-              <Link to="/customer" className="waves-effect">
+              <Link to="/#">
                 <i className="fas fa-user-friends"></i>
+                <span className="badge rounded-pill bg-danger float-end">{wa_count}</span>
                 <span>Customer</span>
               </Link>
+              <ul className="sub-menu">
+                <li>
+                  <Link to="/search-customer" className="waves-effect">
+                    <span>Search Customer</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/customer" className="waves-effect">
+                    <span>Customer</span>
+                  </Link>
+                </li>
+              </ul>
+              
             </li>
 
             <li>
@@ -484,6 +511,11 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/yearly-sales-report">
                     <span>Yearly Sales Report</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/quarter-sales-report">
+                    <span>Quarter Sales Report</span>
                   </Link>
                 </li>
                 <li>

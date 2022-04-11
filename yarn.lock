@@ -6281,7 +6281,7 @@
   dependencies:
     "flat-cache" "^3.0.4"
 
-"file-loader@*", "file-loader@6.1.1":
+"file-loader@*", "file-loader@^6.0.0", "file-loader@6.1.1":
   "integrity" "sha512-Klt8C4BjWSXYQAfhpYYkG4qHNTna4toMHEbWrI5IuVoxbU6uiDKeKAP99R8mmbJi3lvewn/jQBOgU4+NS3tDQw=="
   "resolved" "https://registry.npmjs.org/file-loader/-/file-loader-6.1.1.tgz"
   "version" "6.1.1"
@@ -8875,6 +8875,11 @@
   dependencies:
     "sourcemap-codec" "^1.4.4"
 
+"make-cancellable-promise@^1.0.0":
+  "integrity" "sha512-X5Opjm2xcZsOLuJ+Bnhb4t5yfu4ehlA3OKEYLtqUchgVzL/QaqW373ZUVxVHKwvJ38cmYuR4rAHD2yUvAIkTPA=="
+  "resolved" "https://registry.npmjs.org/make-cancellable-promise/-/make-cancellable-promise-1.1.0.tgz"
+  "version" "1.1.0"
+
 "make-dir@^2.0.0":
   "integrity" "sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA=="
   "resolved" "https://registry.npmjs.org/make-dir/-/make-dir-2.1.0.tgz"
@@ -9050,6 +9055,11 @@
   "integrity" "sha1-sAqqVW3YtEVoFQ7J0blT8/kMu2E="
   "resolved" "https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-1.0.1.tgz"
   "version" "1.0.1"
+
+"merge-refs@^1.0.0":
+  "integrity" "sha512-WZ4S5wqD9FCR9hxkLgvcHJCBxzXzy3VVE6p8W2OzxRzB+hLRlcadGE2bW9xp2KSzk10rvp4y+pwwKO6JQVguMg=="
+  "resolved" "https://registry.npmjs.org/merge-refs/-/merge-refs-1.0.0.tgz"
+  "version" "1.0.0"
 
 "merge-stream@^2.0.0":
   "integrity" "sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w=="
@@ -10093,6 +10103,11 @@
     "ripemd160" "^2.0.1"
     "safe-buffer" "^5.0.1"
     "sha.js" "^2.4.8"
+
+"pdfjs-dist@2.12.313":
+  "integrity" "sha512-1x6iXO4Qnv6Eb+YFdN5JdUzt4pAkxSp3aLAYPX93eQCyg/m7QFzXVWJHJVtoW48CI8HCXju4dSkhQZwoheL5mA=="
+  "resolved" "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-2.12.313.tgz"
+  "version" "2.12.313"
 
 "perfect-scrollbar@^1.5.0", "perfect-scrollbar@1.5.0":
   "integrity" "sha512-NrNHJn5mUGupSiheBTy6x+6SXCFbLlm8fVZh9moIzw/LgqElN5q4ncR4pbCBCYuCJ8Kcl9mYM0NgDxvW+b4LxA=="
@@ -11369,7 +11384,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dom@*", "react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17", "react-dom@^0.14.0 || ^15.0.0 || ^16.0.0", "react-dom@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react-dom@^0.14.9 || ^15.3.0 || ^16.0.0", "react-dom@^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0", "react-dom@^15.0.0 || ^16.0.0", "react-dom@^15.3.0 || ^16.0.0 || ^17.0.0", "react-dom@^15.5.4 || ^16.0.0", "react-dom@^15.5.x || ^16.x || ^17.x", "react-dom@^16.0.0 || ^17.0.0", "react-dom@^16.13.1", "react-dom@^16.2.0 || ^17.0.0", "react-dom@^16.3.0", "react-dom@^16.3.0 || ^17.0.0-0", "react-dom@^16.6.0", "react-dom@^16.7.0 || ^17", "react-dom@^16.8.0", "react-dom@^16.8.0  || ^17.0.0", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^16.8.5 || ^17.0.0", "react-dom@^16.9.0 || ^17", "react-dom@^16.9.0 || ^17.0.0", "react-dom@^16.x", "react-dom@^17.0.2", "react-dom@> 15.5.0 < 17", "react-dom@>= 15", "react-dom@>= 16.8.0", "react-dom@>=0.14", "react-dom@>=0.14.0", "react-dom@>=15.0.0", "react-dom@>=15.5", "react-dom@>=16.3.0", "react-dom@>=16.3.3", "react-dom@>=16.6.0", "react-dom@~0.14.8 || ^15.0.0 || ^16.0.0", "react-dom@0.13.x || 0.14.x || ^15.0.0-0 || 15.x.x || ^16.0.0-0 || ^16.x.x || ^17.x.x", "react-dom@0.14.x || ^15.0.0 || ^16.0.0":
+"react-dom@*", "react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17", "react-dom@^0.14.0 || ^15.0.0 || ^16.0.0", "react-dom@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react-dom@^0.14.9 || ^15.3.0 || ^16.0.0", "react-dom@^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0", "react-dom@^15.0.0 || ^16.0.0", "react-dom@^15.3.0 || ^16.0.0 || ^17.0.0", "react-dom@^15.5.4 || ^16.0.0", "react-dom@^15.5.x || ^16.x || ^17.x", "react-dom@^16.0.0 || ^17.0.0", "react-dom@^16.13.1", "react-dom@^16.2.0 || ^17.0.0", "react-dom@^16.3.0", "react-dom@^16.3.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.3.0 || ^17.0.0-0", "react-dom@^16.6.0", "react-dom@^16.7.0 || ^17", "react-dom@^16.8.0", "react-dom@^16.8.0  || ^17.0.0", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^16.8.5 || ^17.0.0", "react-dom@^16.9.0 || ^17", "react-dom@^16.9.0 || ^17.0.0", "react-dom@^16.x", "react-dom@^17.0.2", "react-dom@> 15.5.0 < 17", "react-dom@>= 15", "react-dom@>= 16.8.0", "react-dom@>=0.14", "react-dom@>=0.14.0", "react-dom@>=15.0.0", "react-dom@>=15.5", "react-dom@>=16.3.0", "react-dom@>=16.3.3", "react-dom@>=16.6.0", "react-dom@~0.14.8 || ^15.0.0 || ^16.0.0", "react-dom@0.13.x || 0.14.x || ^15.0.0-0 || 15.x.x || ^16.0.0-0 || ^16.x.x || ^17.x.x", "react-dom@0.14.x || ^15.0.0 || ^16.0.0":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -11558,6 +11573,22 @@
   "integrity" "sha512-640486eSwU/t5iD6yeTlefma8dI3bxPXD93hM9JGKyYITAd0P1JFkkcDeyHZRqNpY/fv1YW0Fad9BXr44OY8wQ=="
   "resolved" "https://registry.npmjs.org/react-onclickoutside/-/react-onclickoutside-6.11.2.tgz"
   "version" "6.11.2"
+
+"react-pdf@^5.7.2":
+  "integrity" "sha512-hdDwvf007V0i2rPCqQVS1fa70CXut17SN3laJYlRHzuqcu8sLLjEoeXihty6c0Ev5g1mw31b8OT8EwRw1s8C4g=="
+  "resolved" "https://registry.npmjs.org/react-pdf/-/react-pdf-5.7.2.tgz"
+  "version" "5.7.2"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    "file-loader" "^6.0.0"
+    "make-cancellable-promise" "^1.0.0"
+    "make-event-props" "^1.1.0"
+    "merge-class-names" "^1.1.1"
+    "merge-refs" "^1.0.0"
+    "pdfjs-dist" "2.12.313"
+    "prop-types" "^15.6.2"
+    "tiny-invariant" "^1.0.0"
+    "tiny-warning" "^1.0.0"
 
 "react-perfect-scrollbar@^1.5.8":
   "integrity" "sha512-bQ46m70gp/HJtiBOF3gRzBISSZn8FFGNxznTdmTG8AAwpxG1bJCyn7shrgjEvGSQ5FJEafVEiosY+ccER11OSA=="
@@ -11869,7 +11900,7 @@
     "url-search-params-polyfill" "^2.0.0"
     "whatwg-fetch" "2.0.3"
 
-"react@*", "react@^0.14.0 || ^15.0.0", "react@^0.14.0 || ^15.0.0 || ^16 || ^17", "react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^0.14.9 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^0.14.9 || ^15.3.0 || ^16.0.0", "react@^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0", "react@^15.0.0 || ^16.0.0", "react@^15.0.0 || >=16.0.0", "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^15.5.4 || ^16.0.0", "react@^15.5.x || ^16.x || ^17.x", "react@^16.0.0", "react@^16.0.0 || ^17.0.0", "react@^16.13.1", "react@^16.2.0 || ^17.0.0", "react@^16.3.0", "react@^16.3.0 || ^17.0.0", "react@^16.3.0 || ^17.0.0-0", "react@^16.4.2", "react@^16.6.0", "react@^16.7.0 || ^17", "react@^16.8.0", "react@^16.8.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@^16.8.5 || ^17.0.0", "react@^16.9.0 || ^17", "react@^16.9.0 || ^17.0.0", "react@^16.x", "react@^17.0.0", "react@^17.0.1", "react@^17.0.2", "react@> 15.5.0 < 17", "react@>= 15", "react@>= 16", "react@>= 16.8", "react@>= 16.8.0", "react@>= 16.8.x", "react@>=0.13", "react@>=0.14", "react@>=0.14.0", "react@>=0.14.0 || ^15.6.1 || ^16.0.0", "react@>=15", "react@>=15.0.0", "react@>=15.5", "react@>=16.0.0", "react@>=16.3.0", "react@>=16.3.3", "react@>=16.6.0", "react@~0.14.8 || ^15.0.0 || ^16.0.0", "react@0.13.x || 0.14.x || ^15.0.0-0 || 15.x.x || ^16.0.0-0 || ^16.x.x || ^17.x.x", "react@0.14.x || ^15.0.0 || ^16.0.0", "react@0.14.x || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@17.0.2":
+"react@*", "react@^0.14.0 || ^15.0.0", "react@^0.14.0 || ^15.0.0 || ^16 || ^17", "react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^0.14.9 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^0.14.9 || ^15.3.0 || ^16.0.0", "react@^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0", "react@^15.0.0 || ^16.0.0", "react@^15.0.0 || >=16.0.0", "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^15.5.4 || ^16.0.0", "react@^15.5.x || ^16.x || ^17.x", "react@^16.0.0", "react@^16.0.0 || ^17.0.0", "react@^16.13.1", "react@^16.2.0 || ^17.0.0", "react@^16.3.0", "react@^16.3.0 || ^17.0.0", "react@^16.3.0 || ^17.0.0 || ^18.0.0", "react@^16.3.0 || ^17.0.0-0", "react@^16.4.2", "react@^16.6.0", "react@^16.7.0 || ^17", "react@^16.8.0", "react@^16.8.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@^16.8.5 || ^17.0.0", "react@^16.9.0 || ^17", "react@^16.9.0 || ^17.0.0", "react@^16.x", "react@^17.0.0", "react@^17.0.1", "react@^17.0.2", "react@> 15.5.0 < 17", "react@>= 15", "react@>= 16", "react@>= 16.8", "react@>= 16.8.0", "react@>= 16.8.x", "react@>=0.13", "react@>=0.14", "react@>=0.14.0", "react@>=0.14.0 || ^15.6.1 || ^16.0.0", "react@>=15", "react@>=15.0.0", "react@>=15.5", "react@>=16.0.0", "react@>=16.3.0", "react@>=16.3.3", "react@>=16.6.0", "react@~0.14.8 || ^15.0.0 || ^16.0.0", "react@0.13.x || 0.14.x || ^15.0.0-0 || 15.x.x || ^16.0.0-0 || ^16.x.x || ^17.x.x", "react@0.14.x || ^15.0.0 || ^16.0.0", "react@0.14.x || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -13648,7 +13679,7 @@
   "resolved" "https://registry.npmjs.org/timsort/-/timsort-0.3.0.tgz"
   "version" "0.3.0"
 
-"tiny-invariant@^1.0.2", "tiny-invariant@^1.0.6":
+"tiny-invariant@^1.0.0", "tiny-invariant@^1.0.2", "tiny-invariant@^1.0.6":
   "integrity" "sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw=="
   "resolved" "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.1.0.tgz"
   "version" "1.1.0"

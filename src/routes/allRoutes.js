@@ -114,6 +114,7 @@ import PagesDirectory from "../pages/Utility/PagesDirectory";
 
 //Customer
 import Customer from "pages/Customer/Customer";
+import SearchCustomer from "pages/Customer/SearchCustomer"
 
 //Package
 import Package from "pages/Package/Package";
@@ -124,6 +125,7 @@ import Employee from "pages/Employee/Employee";
 //Report
 import MonthlySalesReport from "pages/Report/MonthlySalesReport"
 import YearlySalesReport from "pages/Report/YearlySalesReport"
+import QuarterSalesReport from "pages/Report/QuarterSalesReport"
 import CustomerReport from "pages/Report/CustomerReport"
 import ServerReport from "pages/Report/ServerReport"
 
@@ -215,6 +217,7 @@ const userRoutes = [
 
   //Customer
   { path: "/customer", component: Customer },
+  { path: "/search-customer", component: SearchCustomer },
 
   //Package
   { path: "/package", component: Package },
@@ -225,6 +228,7 @@ const userRoutes = [
   //Report
   { path: "/monthly-sales-report", component: MonthlySalesReport },
   { path: "/yearly-sales-report", component: YearlySalesReport },
+  { path: "/quarter-sales-report", component: QuarterSalesReport },
   { path: "/customer-report", component: CustomerReport },
   { path: "/server-report", component: ServerReport },
 

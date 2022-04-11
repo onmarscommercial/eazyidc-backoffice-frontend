@@ -14,7 +14,7 @@ import {
 // Layout Related Components
 import Header from "./Header"
 import Sidebar from "./Sidebar"
-import Footer from "./Footer"
+//import Footer from "./Footer"
 import Rightbar from "../CommonForBoth/Rightbar"
 
 class Layout extends Component {
@@ -72,7 +72,7 @@ class Layout extends Component {
             isMobile={this.state.isMobile}
           />
           <div className="main-content">{this.props.children}</div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
         {this.props.showRightSidebar ? <Rightbar /> : null}
       </React.Fragment>

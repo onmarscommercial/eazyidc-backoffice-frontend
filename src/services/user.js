@@ -6,8 +6,32 @@ class UserService {
     return axios.get("employee/customer", { headers: authHeader() })
   }
 
+  searchCustomer(searchData) {
+    return axios.post("employee/search-customer", { searchData }, { headers: authHeader() })
+  }
+
   addCustomer(customerType, firstname, lastname, companyName, taxId, email, password, phone) {
     return axios.post("employee/add-customer", { customerType, firstname, lastname, companyName, taxId, email, password, phone }, { headers: authHeader() })
+  }
+
+  editCustomer() {
+
+  }
+
+  changePasswordCustomer() {
+
+  }
+
+  addAddressCustomer(accountId, address, province, postcode) {
+    return axios.post("employee/add-address-customer", { accountId, address, province, postcode }, { headers: authHeader() })
+  }
+
+  getCountWaitApprove() {
+    return axios.get("employee/count-wait-approve", { headers: authHeader() })
+  }
+
+  approve(accountId) {
+    return axios.post("employee/check-verify-identity", { accountId }, { headers: authHeader() })
   }
 
   getPackageList() {
@@ -36,6 +60,10 @@ class UserService {
 
   download(accountId) {
     return axios.post("employee/download", { accountId }, { responseType: "blob" })
+  }
+
+  previewFile(accountId) {
+    return axios.post("employee/preview-file", {accountId}, { headers: authHeader() })
   }
 }
 
