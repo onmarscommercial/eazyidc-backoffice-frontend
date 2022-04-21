@@ -2,7 +2,7 @@ import React from "react"
 import { Redirect } from "react-router-dom"
 
 // Profile
-import UserProfile from "../pages/Authentication/user-profile"
+//import UserProfile from "../pages/Authentication/user-profile"
 
 // Pages Calendar
 import Calendar from "../pages/Calendar/index"
@@ -129,6 +129,8 @@ import QuarterSalesReport from "pages/Report/QuarterSalesReport"
 import CustomerReport from "pages/Report/CustomerReport"
 import ServerReport from "pages/Report/ServerReport"
 
+import Profile from "pages/Profile/Profile"
+
 const userRoutes = [
   { path: "/dashboard", component: Dashboard },
 
@@ -136,7 +138,8 @@ const userRoutes = [
   { path: "/calendar", component: Calendar },
 
   // //profile
-  { path: "/profile", component: UserProfile },
+  //{ path: "/user-profile", component: UserProfile },
+  { path: "/profile", component: Profile },
 
   //Email
   { path: "/email-inbox", component: EmailInbox },

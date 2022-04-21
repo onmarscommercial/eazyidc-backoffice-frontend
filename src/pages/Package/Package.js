@@ -85,6 +85,7 @@ const Package = () => {
     } else {
       history.push("/login")
       window.location.reload()
+      AuthService.logout()
     }
   }, [])
 
@@ -204,6 +205,7 @@ const Package = () => {
       } else {
         history.push("/login")
         window.location.reload()
+        AuthService.logout()
       }
     })
   }

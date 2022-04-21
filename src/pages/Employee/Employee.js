@@ -6,6 +6,7 @@ import Select from "react-select"
 import { Container, Row, Col, Button, Modal } from "reactstrap";
 import UserService from '../../services/user'
 import AuthService from "../../services/auth"
+import { useHistory } from "react-router-dom";
 
 const Offsymbol = () => {
   return (
@@ -61,6 +62,8 @@ const Employee = () => {
   const [status, setStatus] = useState(true)
   const [currentUser, setCurrentUser] = useState(undefined)
 
+  let history = useHistory()
+
   let createdBy;
 
   useEffect(() => {
@@ -69,6 +72,10 @@ const Employee = () => {
       setCurrentUser(user)
 
       getEmployee()
+    } else {
+      history.push("/login")
+      window.location.reload()
+      AuthService.logout()
     }
   }, [])
 
@@ -95,6 +102,10 @@ const Employee = () => {
     UserService.getEmployeeList().then((res) => {
       if (res.data.code === 0) {
         setEmployeeList(res.data.result.emp)
+      } else {
+        history.push("/login")
+        window.location.reload()
+        AuthService.logout()
       }
     })
   }

@@ -39,12 +39,13 @@ const Customer = () => {
   useEffect(() => {
     let user = AuthService.getCurrentUser()
     if (user) {
-      setCurrentUser(currentUser)
+      setCurrentUser(user)
 
       getCustomer()
     } else {
       history.push("/login")
       window.location.reload()
+      AuthService.logout()
     }
   }, [])
 
@@ -90,6 +91,7 @@ const Customer = () => {
       } else {
         history.push("/login")
         window.location.reload()
+        AuthService.logout()
       }
     })
   }

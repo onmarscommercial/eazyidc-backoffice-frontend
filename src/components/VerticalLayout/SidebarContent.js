@@ -467,6 +467,7 @@ const SidebarContent = props => {
               </ul>
             </li>
 
+            {/* Customer */}
             <li>
               <Link to="/#">
                 <i className="fas fa-user-friends"></i>
@@ -485,16 +486,15 @@ const SidebarContent = props => {
                   </Link>
                 </li>
               </ul>
-              
             </li>
-
+            {/* Package */}
             <li>
               <Link to="/package" className="waves-effect">
                 <i className="ti-package"></i>
                 <span>Package</span>
               </Link>
             </li>
-
+            {/* Report */}
             <li className="menu-title">Report</li>
 
             <li>
@@ -530,7 +530,7 @@ const SidebarContent = props => {
                 </li>
               </ul>
             </li>
-
+            {/* Employee */}
             <li className="menu-title">Employee</li>
 
             <li>

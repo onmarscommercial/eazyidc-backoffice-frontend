@@ -14,12 +14,16 @@ class UserService {
     return axios.post("employee/add-customer", { customerType, firstname, lastname, companyName, taxId, email, password, phone }, { headers: authHeader() })
   }
 
-  editCustomer() {
-
+  editCustomer(accountId, email, phone, customerType, firstname, lastname, companyName, taxId, address, province, postcode) {
+    return axios.post("employee/edit-customer", { accountId, email, phone, customerType, firstname, lastname, companyName, taxId, address, province, postcode }, { headers: authHeader() })
   }
 
-  changePasswordCustomer() {
+  bannedUser(accountId) {
+    return axios.post("employee/banned-user", { accountId }, { headers: authHeader() })
+  }
 
+  changePasswordCustomer(accountId, password, confirmPassword) {
+    return axios.post("employee/change-pwd-customer", { accountId, password, confirmPassword }, { headers: authHeader() })
   }
 
   addAddressCustomer(accountId, address, province, postcode) {
