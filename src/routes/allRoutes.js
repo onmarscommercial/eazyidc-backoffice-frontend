@@ -112,12 +112,17 @@ import Pages500 from "../pages/Utility/pages-500"
 import PagesGallery from "../pages/Utility/PagesGallery";
 import PagesDirectory from "../pages/Utility/PagesDirectory";
 
+//EazyIdcDashboard
+import EazyIdcDashboard from "pages/EazyIdcDashboard/index"
+
 //Customer
 import Customer from "pages/Customer/Customer";
 import SearchCustomer from "pages/Customer/SearchCustomer"
 
 //Package
 import Package from "pages/Package/Package";
+
+import Problem from "pages/Problem/Problem"
 
 //Employee
 import Employee from "pages/Employee/Employee";
@@ -218,12 +223,18 @@ const userRoutes = [
   { path: "/pages-pricing", component: PagesPricing },
   { path: "/pages-gallery", component: PagesGallery },
 
+  //EazyIdcDashboard
+  { path: "/dashboard2", component: EazyIdcDashboard },
+
   //Customer
   { path: "/customer", component: Customer },
   { path: "/search-customer", component: SearchCustomer },
 
   //Package
   { path: "/package", component: Package },
+
+  //Problem
+  { path: "/problem", component: Problem},
 
   //Employee
   { path: "/employee", component: Employee },

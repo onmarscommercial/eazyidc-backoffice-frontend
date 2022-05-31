@@ -467,6 +467,13 @@ const SidebarContent = props => {
               </ul>
             </li>
 
+            <li>
+              <Link to="/dashboard2" className="waves-effect">
+                <i className="ti-home"></i>
+                <span>Dashboard</span>
+              </Link>
+            </li>
+
             {/* Customer */}
             <li>
               <Link to="/#">
@@ -487,6 +494,7 @@ const SidebarContent = props => {
                 </li>
               </ul>
             </li>
+
             {/* Package */}
             <li>
               <Link to="/package" className="waves-effect">
@@ -494,6 +502,14 @@ const SidebarContent = props => {
                 <span>Package</span>
               </Link>
             </li>
+
+            <li>
+              <Link to="/problem" className="waves-effect">
+                <i className="fas fa-exclamation-triangle"></i>
+                <span>Problem Report</span>
+              </Link>
+            </li>
+
             {/* Report */}
             <li className="menu-title">Report</li>
 

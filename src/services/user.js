@@ -59,7 +59,15 @@ class UserService {
   }
 
   addEmployee(createdBy, username, password, firstname, lastname, roleId, status) {
-    return axios.post("employee/add-employee", {createdBy, username, password, firstname, lastname, roleId, status }, { headers: authHeader() })
+    return axios.post("employee/add-employee", { createdBy, username, password, firstname, lastname, roleId, status }, { headers: authHeader() })
+  }
+
+  getEditEmployee(employeeId) {
+    return axios.post("employee/get-edit-employee", { employeeId }, { headers: authHeader() })
+  }
+
+  editEmployee(employeeId, username, status, updatedBy) {
+    return axios.post("employee/edit-employee", { employeeId, username, status, updatedBy }, { headers: authHeader() })
   }
 
   download(accountId) {
@@ -67,7 +75,7 @@ class UserService {
   }
 
   previewFile(accountId) {
-    return axios.post("employee/preview-file", {accountId}, { headers: authHeader() })
+    return axios.post("employee/preview-file", { accountId }, { headers: authHeader() })
   }
 }
 

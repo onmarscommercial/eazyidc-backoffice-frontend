@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MetaTags } from "react-meta-tags"
 import { Container, Row, Col, Card, CardBody, CardHeader } from "reactstrap"
+import Swal from "sweetalert2";
 import AuthService from "../../services/auth"
  
 const Profile = () => {
@@ -8,6 +9,49 @@ const Profile = () => {
   const [confirmPassword, setConfirmPassword] = useState("")
 
   let user = AuthService.getCurrentUser()
+
+  // const checkPassword = (password) => {
+  //   var check = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,16}$/)
+  //   if (!check.test(password)) {
+  //     return false
+  //   } else {
+  //     return true
+  //   }
+  // }
+
+  const onChangePassword = e => {
+    e.preventDefault();
+
+    //if (checkPassword(password) === true) {
+      AuthService.changePWD(user.profile.employeeId, password, confirmPassword).then((res) => {
+        if (res.data.code === 0) {
+          Swal.fire({
+            icon: "success",
+            title: res.data.message
+          })
+          setPassword("")
+          setConfirmPassword("")
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: res.data.message
+          })
+          setPassword("")
+          setConfirmPassword("")
+        }
+      })
+    // } else {
+    //   Swal.fire({
+    //     icon: "error",
+    //     html: `<div class="text-start">Your password must be 8-16 characters,
+    //     and include at least one uppercase letter,
+    //     at least one lowercase letter,  at least a number,
+    //     and  at least one special characters.</div>`
+    //   })
+    //   setPassword("")
+    //   setConfirmPassword("")
+    // }
+  }
 
   return (
     <React.Fragment>
@@ -25,6 +69,7 @@ const Profile = () => {
                   </CardHeader>
                   <CardBody>
                     <h6>{"Name: " + user.profile.firstname + ' ' + user.profile.lastname}</h6>
+                    <h6>{"Role: " + user.profile.roleId}</h6>
                   </CardBody>
                 </Card>
 
@@ -33,7 +78,7 @@ const Profile = () => {
                     <h5>Change Password</h5>
                   </CardHeader>
                   <CardBody>
-                    <form>
+                    <form onSubmit={onChangePassword}>
                       <Row>
                         <Col md={2}>
                           <label className="col-form-label" htmlFor="password">Password</label>
@@ -52,7 +97,7 @@ const Profile = () => {
                       </Row>
                       <Row className="mt-2">
                         <Col>
-                          <button type="button" className="btn btn-primary">Change Password</button>
+                          <button type="submit" className="btn btn-primary">Change Password</button>
                         </Col>
                       </Row>
                     </form>

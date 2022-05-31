@@ -41,6 +41,10 @@ class AuthService {
   getStatusLogin() {
     return JSON.parse(localStorage.getItem("login"))
   }
+
+  changePWD(employeeId, password, confirmPassword) {
+    return axios.post("employee/change-pwd", { employeeId, password, confirmPassword }, { headers: authHeader() })
+  }
 }
 
 export default new AuthService();

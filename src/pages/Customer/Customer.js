@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MetaTags } from "react-meta-tags";
 import { MDBDataTable } from "mdbreact";
-import { Container, Row, Col, Button, Modal, Badge } from "reactstrap"
+import { Container, Row, Col, Button, Modal, Badge, Card, CardHeader, CardBody } from "reactstrap"
 import UserService from "../../services/user"
 import AuthService from "../../services/auth"
 import { useHistory } from "react-router-dom"
@@ -299,165 +299,175 @@ const Customer = () => {
           ) : isPdf ? (<div></div>) : (<div></div>)} */}
 
           <div className="page-title-box">
-            <Row className="align-items-center">
-              <Col md={8}>
-                <h6 className="page-title">Customer</h6>
-              </Col>
-              <Col md={4} >
-                <div className="float-end">
+            <Card>
+              <CardHeader>
+                <Row className="align-items-center">
+                  <Col md={8}>
+                    <h6 className="page-title">
+                      Customer
+                    </h6>
+                  </Col>
+                  <Col md={4} >
+                    <div className="float-end">
+                      <button 
+                        type="button" 
+                        className="btn btn-primary waves-effect waves-light" 
+                        data-toggle="modal" 
+                        data-target="#customerModal" 
+                        onClick={() => {toggleCustomerModal()}}>
+                        <i className="fas fa-user-plus"></i> Add Customer
+                      </button>
+                    </div>
+                  </Col>
+                </Row>
+              </CardHeader>
+              <CardBody>
+                <Row className="mt-4">
+                  <Col className="col-12">
+                    <MDBDataTable responsive bordered data={datatable} className="text-center"/>
+                  </Col>
+                </Row>
+
+                <Row className="mt-4">
+                  <Col>
+                    <button type="button" className="btn btn-primary float-end" onClick={() => approve()}>
+                      <i className="fas fa-user-check"></i> Approve
+                    </button>
+                  </Col>
+                </Row>
+              </CardBody>
+            </Card>
+            
+            <Modal size="lg" isOpen={addCustomerModal} toggle={() => {toggleCustomerModal()}}>
+              <form onSubmit={handleAddCustomer}>
+                <div className="modal-header">
+                  <h5 className="modal-title mt-0" id="customerModal">Add Customer</h5>
                   <button 
                     type="button" 
-                    className="btn btn-outline-primary waves-effect waves-light" 
-                    data-toggle="modal" 
-                    data-target="#customerModal" 
-                    onClick={() => {toggleCustomerModal()}}>
-                    Add Customer
+                    className="close" 
+                    data-dismiss="modal" 
+                    aria-label="Close" 
+                    onClick={() => {setCustomerModal(false)}}>
+                    <span aria-hidden="true">&times;</span>
                   </button>
-                  <Modal size="lg" isOpen={addCustomerModal} toggle={() => {toggleCustomerModal()}}>
-                    <form onSubmit={handleAddCustomer}>
-                      <div className="modal-header">
-                        <h5 className="modal-title mt-0" id="customerModal">Add Customer</h5>
-                        <button 
-                          type="button" 
-                          className="close" 
-                          data-dismiss="modal" 
-                          aria-label="Close" 
-                          onClick={() => {setCustomerModal(false)}}>
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div className="modal-body">
-                        <Row className="mb-3">
-                          <label className="col-md-3">Customer Type</label>
-                          <div className="col-md-5">
-                            <div className="form-check form-check-inline">
-                              <input type="radio" id="ordinary" name="customerType" className="form-check-input" value="O" checked={customerType === 'O'} onChange={changeCustomerType} />
-                              <label htmlFor="ordinary">Ordinary</label>
-                            </div>
-                            <div className="form-check form-check-inline">
-                              <input type="radio" id="juristic" name="customerType" className="form-check-input" value="J" checked={customerType === 'J'} onChange={changeCustomerType} />
-                              <label htmlFor="juristic">Juristic</label>
-                            </div>
-                          </div>
-                        </Row>
-
-                        <Row className="row mb-3" style={{display: customerType === "O" ? "none" : ""}}>
-                          <label className="col-md-3 col-form-label" htmlFor="companyName">CompanyName</label>
-                          <div className="col-md-9">
-                            <input type="text" className="form-control" id="companyName" value={companyName} onChange={e => setCompanyName(e.target.value)} />
-                          </div>
-                        </Row>
-
-                        <Row className="mb-3" style={{display: customerType === "O" ? "none" : ""}}>
-                          <label className="col-md-3 col-form-label" htmlFor="taxId">Tax ID</label>
-                          <div className="col-md-9">
-                            <input type="text" pattern="[0-9]*" className="form-control" id="taxId" onInput={changeTaxId} value={taxId} maxLength="13" />
-                          </div>
-                        </Row>
-
-                        <Row className="mb-3" style={{display: customerType === "J" ? "none" : ""}}>
-                          <label className="col-md-3 col-form-label" htmlFor="firstname">Firstname</label>
-                          <div className="col-md-9">
-                            <input type="text" className="form-control" id="firstname" value={firstname} onChange={e => setFirstname(e.target.value)} />
-                          </div>
-                        </Row>
-
-                        <Row className="mb-3" style={{display: customerType === "J" ? "none" : ""}}>
-                          <label className="col-md-3 col-form-label" htmlFor="lastname">Lastname</label>
-                          <div className="col-md-9">
-                            <input type="text" className="form-control" id="lastname" value={lastname} onChange={e => setLastname(e.target.value)} />
-                          </div>
-                        </Row>
-
-                        <Row className="mb-3">
-                          <label className="col-md-3 col-form-label" htmlFor="email">Email</label>
-                          <div className="col-md-9">
-                            <input type="email" className="form-control" id="email" value={email} onChange={e => setEmail(e.target.value)} />
-                          </div>
-                        </Row>
-
-                        <Row className="mb-3">
-                          <label className="col-md-3 col-form-label" htmlFor="password">Password</label>
-                          <div className="col-md-9">
-                            <input type="password" className="form-control" id="password" value={password} onChange={e => setPassword(e.target.value)} />
-                          </div>
-                        </Row>
-
-                        <Row className="mb-3">
-                          <label className="col-md-3 col-form-label" htmlFor="verify-password">Confirm Password</label>
-                          <div className="col-md-9">
-                            <input type="password" className="form-control" id="verify-password" value={verifyPassword} onChange={e => setVerifyPassword(e.target.value)} />
-                          </div>
-                        </Row>
-
-                        <Row className="mb-3">
-                          <label className="col-md-3 col-form-label" htmlFor="tel">Phone</label>
-                          <div className="col-md-9">
-                            <input type="text" className="form-control" id="tel" value={phone} onChange={e => setPhone(e.target.value)} />
-                          </div>
-                        </Row>
-                      </div>
-                      <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary waves-effect" data-dismiss="modal" onClick={() => toggleCustomerModal()}>Close</button>
-                        <button type="submit" className="btn btn-primary waves-effect waves-light">Save</button>
-                      </div>
-                    </form>
-                  </Modal>
-
-                  <Modal isOpen={addCustomerAddressModal} toggle={() => {toggleCustomerAddressModal()}}>
-                    <form onSubmit={handleAddCustomerAddress}>
-                      <div className="modal-header">
-                        <h5 className="modal-title mt-0" id="customerAddressModal">Add Customer Address</h5>
-                        <button
-                          type="button"
-                          className="close"
-                          data-dismiss="modal"
-                          aria-label="Close"
-                          onClick={() => {setCustomerAddressModal(false)}}>
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div className="modal-body">
-                        <Row>
-                          <label className="col-md-3 col-form-label">Address</label>
-                          <div className="col-md-9">
-                            <textarea className="form-control" value={address} onChange={e => setAddress(e.target.value)} />
-                          </div>
-                        </Row>
-                        <Row className="mt-2">
-                          <label className="col-md-3 col-form-label">Province</label>
-                          <div className="col-md-9">
-                            <input type="text" className="form-control" value={province} onChange={e => setProvince(e.target.value)} />
-                          </div>
-                        </Row>
-                        <Row className="mt-2">
-                          <label className="col-md-3 col-form-label">Postcode</label>
-                          <div className="col-md-9">
-                            <input type="text" className="form-control" value={postcode} onChange={e => setPostcode(e.target.value)} />
-                          </div>
-                        </Row>
-                      </div>
-                      <div className="modal-footer">
-                      <button type="button" className="btn btn-secondary waves-effect" data-dismiss="modal" onClick={() => toggleCustomerAddressModal()}>Close</button>
-                        <button type="submit" className="btn btn-primary waves-effect waves-light">Save</button>
-                      </div>
-                    </form>
-                  </Modal>
                 </div>
-              </Col>
-            </Row>
-            <Row className="mt-4">
-              <Col className="col-12">
-                <MDBDataTable responsive bordered data={datatable} className="text-center"/>
-              </Col>
-            </Row>
-            <Row className="mt-4">
-              <Col>
-                <button type="button" className="btn btn-primary float-end" onClick={() => approve()}>
-                  <i className="fas fa-user-check"></i> Approve
-                </button>
-              </Col>
-            </Row>
+                <div className="modal-body">
+                  <Row className="mb-3">
+                    <label className="col-md-3">Customer Type</label>
+                    <div className="col-md-5">
+                      <div className="form-check form-check-inline">
+                        <input type="radio" id="ordinary" name="customerType" className="form-check-input" value="O" checked={customerType === 'O'} onChange={changeCustomerType} />
+                        <label htmlFor="ordinary">Ordinary</label>
+                      </div>
+                      <div className="form-check form-check-inline">
+                        <input type="radio" id="juristic" name="customerType" className="form-check-input" value="J" checked={customerType === 'J'} onChange={changeCustomerType} />
+                        <label htmlFor="juristic">Juristic</label>
+                      </div>
+                    </div>
+                  </Row>
+
+                  <Row className="row mb-3" style={{display: customerType === "O" ? "none" : ""}}>
+                    <label className="col-md-3 col-form-label" htmlFor="companyName">CompanyName</label>
+                    <div className="col-md-9">
+                      <input type="text" className="form-control" id="companyName" value={companyName} onChange={e => setCompanyName(e.target.value)} />
+                    </div>
+                  </Row>
+
+                  <Row className="mb-3" style={{display: customerType === "O" ? "none" : ""}}>
+                    <label className="col-md-3 col-form-label" htmlFor="taxId">Tax ID</label>
+                    <div className="col-md-9">
+                      <input type="text" pattern="[0-9]*" className="form-control" id="taxId" onInput={changeTaxId} value={taxId} maxLength="13" />
+                    </div>
+                  </Row>
+
+                  <Row className="mb-3" style={{display: customerType === "J" ? "none" : ""}}>
+                    <label className="col-md-3 col-form-label" htmlFor="firstname">Firstname</label>
+                    <div className="col-md-9">
+                      <input type="text" className="form-control" id="firstname" value={firstname} onChange={e => setFirstname(e.target.value)} />
+                    </div>
+                  </Row>
+
+                  <Row className="mb-3" style={{display: customerType === "J" ? "none" : ""}}>
+                    <label className="col-md-3 col-form-label" htmlFor="lastname">Lastname</label>
+                    <div className="col-md-9">
+                      <input type="text" className="form-control" id="lastname" value={lastname} onChange={e => setLastname(e.target.value)} />
+                    </div>
+                  </Row>
+
+                  <Row className="mb-3">
+                    <label className="col-md-3 col-form-label" htmlFor="email">Email</label>
+                    <div className="col-md-9">
+                      <input type="email" className="form-control" id="email" value={email} onChange={e => setEmail(e.target.value)} />
+                    </div>
+                  </Row>
+
+                  <Row className="mb-3">
+                    <label className="col-md-3 col-form-label" htmlFor="password">Password</label>
+                    <div className="col-md-9">
+                      <input type="password" className="form-control" id="password" value={password} onChange={e => setPassword(e.target.value)} />
+                    </div>
+                  </Row>
+
+                  <Row className="mb-3">
+                    <label className="col-md-3 col-form-label" htmlFor="verify-password">Confirm Password</label>
+                    <div className="col-md-9">
+                      <input type="password" className="form-control" id="verify-password" value={verifyPassword} onChange={e => setVerifyPassword(e.target.value)} />
+                    </div>
+                  </Row>
+
+                  <Row className="mb-3">
+                    <label className="col-md-3 col-form-label" htmlFor="tel">Phone</label>
+                    <div className="col-md-9">
+                      <input type="text" className="form-control" id="tel" value={phone} onChange={e => setPhone(e.target.value)} />
+                    </div>
+                  </Row>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary waves-effect" data-dismiss="modal" onClick={() => toggleCustomerModal()}>Close</button>
+                  <button type="submit" className="btn btn-primary waves-effect waves-light">Save</button>
+                </div>
+              </form>
+            </Modal>
+
+            <Modal isOpen={addCustomerAddressModal} toggle={() => {toggleCustomerAddressModal()}}>
+              <form onSubmit={handleAddCustomerAddress}>
+                <div className="modal-header">
+                  <h5 className="modal-title mt-0" id="customerAddressModal">Add Customer Address</h5>
+                  <button
+                    type="button"
+                    className="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    onClick={() => {setCustomerAddressModal(false)}}>
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div className="modal-body">
+                  <Row>
+                    <label className="col-md-3 col-form-label">Address</label>
+                    <div className="col-md-9">
+                      <textarea className="form-control" value={address} onChange={e => setAddress(e.target.value)} />
+                    </div>
+                  </Row>
+                  <Row className="mt-2">
+                    <label className="col-md-3 col-form-label">Province</label>
+                    <div className="col-md-9">
+                      <input type="text" className="form-control" value={province} onChange={e => setProvince(e.target.value)} />
+                    </div>
+                  </Row>
+                  <Row className="mt-2">
+                    <label className="col-md-3 col-form-label">Postcode</label>
+                    <div className="col-md-9">
+                      <input type="text" className="form-control" value={postcode} onChange={e => setPostcode(e.target.value)} />
+                    </div>
+                  </Row>
+                </div>
+                <div className="modal-footer">
+                <button type="button" className="btn btn-secondary waves-effect" data-dismiss="modal" onClick={() => toggleCustomerAddressModal()}>Close</button>
+                  <button type="submit" className="btn btn-primary waves-effect waves-light">Save</button>
+                </div>
+              </form>
+            </Modal>
           </div>
         </Container>
       </div>
