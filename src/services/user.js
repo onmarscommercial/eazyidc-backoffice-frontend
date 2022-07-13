@@ -66,8 +66,8 @@ class UserService {
     return axios.post("employee/get-edit-employee", { employeeId }, { headers: authHeader() })
   }
 
-  editEmployee(employeeId, username, status, updatedBy) {
-    return axios.post("employee/edit-employee", { employeeId, username, status, updatedBy }, { headers: authHeader() })
+  editEmployee(employeeId, username, password, status, updatedBy) {
+    return axios.post("employee/edit-employee", { employeeId, username, password, status, updatedBy }, { headers: authHeader() })
   }
 
   download(accountId) {
@@ -76,6 +76,10 @@ class UserService {
 
   previewFile(accountId) {
     return axios.post("employee/preview-file", { accountId }, { headers: authHeader() })
+  }
+
+  getProblem() {
+    return axios.get("employee/problem", { headers: authHeader() })
   }
 }
 

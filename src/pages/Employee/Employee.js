@@ -152,7 +152,7 @@ const Employee = () => {
   const handleEditEmployee = e => {
     e.preventDefault();
 
-    UserService.editEmployee(employeeId, editUsername, editStatus === true ? 1 : 0, updatedBy).then((res) => {
+    UserService.editEmployee(employeeId, editUsername, editPassword, editStatus === true ? 1 : 0, updatedBy).then((res) => {
       if (res.data.code === 0) {
         Swal.fire({
           icon: "success",

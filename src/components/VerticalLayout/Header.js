@@ -16,6 +16,8 @@ import logosmImg from "../../assets/images/logo-sm.png";
 import logolightImg from "../../assets/images/logo-light.png";
 import logoImg from "../../assets/images/logo.png"
 import logoEazyidcsmImg from "../../assets/images/logo-eazyidc-sm.png"
+import ShopLogo from "../../assets/images/shop_logo_1.png"
+import ShopLogoSm from "../../assets/images/shop_logo_sm.png"
 
 //i18n
 import { withTranslation } from "react-i18next"
@@ -87,10 +89,10 @@ const Header = props => {
 
               <Link to="/" className="logo logo-light">
                 <span className="logo-sm">
-                  <img src={logoEazyidcsmImg} alt="" height="30" />
+                  <img src={ShopLogoSm} alt="" height="30" />
                 </span>
                 <span className="logo-lg">
-                  <img src={logoImg} alt="" height="50" />
+                  <img src={ShopLogo} alt="" />
                 </span>
               </Link>
             </div>

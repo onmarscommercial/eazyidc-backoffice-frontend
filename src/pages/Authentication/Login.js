@@ -39,7 +39,7 @@ const Login = () => {
           timer: 10000,
           showConfirmButton: false
         })
-        history.push("/dashboard")
+        history.push("/dashboard2")
         window.location.reload()
       } else {
         Swal.fire({

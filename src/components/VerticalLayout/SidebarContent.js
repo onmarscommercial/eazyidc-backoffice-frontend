@@ -105,6 +105,95 @@ const SidebarContent = props => {
       <SimpleBar style={{ maxHeight: "100%" }} ref={ref}>
         <div id="sidebar-menu">
           <ul className="metismenu list-unstyled" id="side-menu">
+            <li>
+              <Link to="/dashboard2" className="waves-effect">
+                <i className="ti-home"></i>
+                <span>Dashboard</span>
+              </Link>
+            </li>
+
+            {/* Customer */}
+            <li>
+              <Link to="/#">
+                <i className="fas fa-user-friends"></i>
+                <span className="badge rounded-pill bg-danger float-end">{wa_count}</span>
+                <span>Customer</span>
+              </Link>
+              <ul className="sub-menu">
+                <li>
+                  <Link to="/search-customer" className="waves-effect">
+                    <span>Search Customer</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/customer" className="waves-effect">
+                    <span>Customer</span>
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Package */}
+            <li>
+              <Link to="/package" className="waves-effect">
+                <i className="ti-package"></i>
+                <span>Package</span>
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/problem" className="waves-effect">
+                <i className="fas fa-exclamation-triangle"></i>
+                <span>Problem Report</span>
+              </Link>
+            </li>
+
+            {/* Report */}
+            <li className="menu-title">Report</li>
+
+            <li>
+              <Link to="/#" className="has-arrow waves-effect">
+                <i className="fas fa-file-alt"></i>
+                <span>Report</span>
+              </Link>
+              <ul className="sub-menu" aria-expanded="true">
+                <li>
+                  <Link to="/monthly-sales-report">
+                    <span>Monthly Sales Report</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/yearly-sales-report">
+                    <span>Yearly Sales Report</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/quarter-sales-report">
+                    <span>Quarter Sales Report</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/customer-report">
+                    <span>Customer Report</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/server-report">
+                    <span>Server Report</span>
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            {/* Employee */}
+            <li className="menu-title">Employee</li>
+
+            <li>
+              <Link to="/employee" className="waves-effect">
+                <i className="dripicons-user-group"></i>
+                <span>Employee</span>
+              </Link>
+            </li>
+            
             <li className="menu-title">{props.t("Main")} </li>
             <li>
               <Link to="/dashboard" className="waves-effect">
@@ -467,94 +556,7 @@ const SidebarContent = props => {
               </ul>
             </li>
 
-            <li>
-              <Link to="/dashboard2" className="waves-effect">
-                <i className="ti-home"></i>
-                <span>Dashboard</span>
-              </Link>
-            </li>
-
-            {/* Customer */}
-            <li>
-              <Link to="/#">
-                <i className="fas fa-user-friends"></i>
-                <span className="badge rounded-pill bg-danger float-end">{wa_count}</span>
-                <span>Customer</span>
-              </Link>
-              <ul className="sub-menu">
-                <li>
-                  <Link to="/search-customer" className="waves-effect">
-                    <span>Search Customer</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/customer" className="waves-effect">
-                    <span>Customer</span>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-
-            {/* Package */}
-            <li>
-              <Link to="/package" className="waves-effect">
-                <i className="ti-package"></i>
-                <span>Package</span>
-              </Link>
-            </li>
-
-            <li>
-              <Link to="/problem" className="waves-effect">
-                <i className="fas fa-exclamation-triangle"></i>
-                <span>Problem Report</span>
-              </Link>
-            </li>
-
-            {/* Report */}
-            <li className="menu-title">Report</li>
-
-            <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="fas fa-file-alt"></i>
-                <span>Report</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="true">
-                <li>
-                  <Link to="/monthly-sales-report">
-                    <span>Monthly Sales Report</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/yearly-sales-report">
-                    <span>Yearly Sales Report</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/quarter-sales-report">
-                    <span>Quarter Sales Report</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/customer-report">
-                    <span>Customer Report</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/server-report">
-                    <span>Server Report</span>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            {/* Employee */}
-            <li className="menu-title">Employee</li>
-
-            <li>
-              <Link to="/employee" className="waves-effect">
-                <i className="dripicons-user-group"></i>
-                <span>Employee</span>
-              </Link>
-            </li>
+            
           </ul>
         </div>
       </SimpleBar>
