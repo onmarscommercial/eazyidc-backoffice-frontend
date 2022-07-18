@@ -51,13 +51,55 @@ const EazyIdcDashboard = () => {
                 </CardBody>
               </Card>
             </Col>
+            <Col xl={3} md={6}>
+              <Card className="mini-stat bg-primary text-white">
+                <CardBody>
+                  <div className="mb-4">
+                    <div className="float-start mini-stat-img me-4">
+
+                    </div>
+                    <h5 className="font-size-16 text-uppercase mt-0 text-white-50">
+                      Orders
+                    </h5>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col xl={3} md={6}>
+              <Card className="mini-stat bg-primary text-white">
+                <CardBody>
+                  <div className="mb-4">
+                    <div className="float-start mini-stat-img me-4">
+
+                    </div>
+                    <h5 className="font-size-16 text-uppercase mt-0 text-white-50">
+                      Orders
+                    </h5>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col xl={3} md={6}>
+              <Card className="mini-stat bg-primary text-white">
+                <CardBody>
+                  <div className="mb-4">
+                    <div className="float-start mini-stat-img me-4">
+
+                    </div>
+                    <h5 className="font-size-16 text-uppercase mt-0 text-white-50">
+                      Orders
+                    </h5>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
           </Row>
 
           <Row>
             <Col xl={3}>
               <Card>
                 <CardBody>
-                  <h4 className="card-title mb-4">Package</h4>
+                  <h4 className="card-title mb-4">Server Type</h4>
                   <div id="ct-donut" className="ct-chart wid pt-4">
                     <Salesdonut />
                   </div>
@@ -66,23 +108,23 @@ const EazyIdcDashboard = () => {
                       <tbody>
                         <tr>
                           <td>
-                            <span className="badge bg-primary">package 1</span>
+                            <span className="badge bg-primary">Windows Server</span>
                           </td>
-                          <td>package 1</td>
+                          <td>Windows Server</td>
                           <td className="text-end">54.5%</td>
                         </tr>
                         <tr>
                           <td>
-                            <span className="badge bg-success">package 1</span>
+                            <span className="badge bg-success">Ubuntu</span>
                           </td>
-                          <td>package 1</td>
+                          <td>Ubuntu</td>
                           <td className="text-end">28.0%</td>
                         </tr>
                         <tr>
                           <td>
-                            <span className="badge bg-warning">package 1</span>
+                            <span className="badge bg-warning">CentOS</span>
                           </td>
-                          <td>package 1</td>
+                          <td>CentOS</td>
                           <td className="text-end">17.5%</td>
                         </tr>
                       </tbody>
