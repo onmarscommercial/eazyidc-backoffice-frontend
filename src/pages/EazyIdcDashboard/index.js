@@ -133,7 +133,40 @@ const EazyIdcDashboard = () => {
                 </CardBody>
               </Card>
             </Col>
+
+            <Col xl={3}>
+              <Card>
+                <CardBody>
+                  <h4 className="card-title mb-4">Server Active</h4>
+                  <div id="ct-donut" className="ct-chart wid pt-4">
+                    <Salesdonut />
+                  </div>
+                  <div className="mt-4">
+                    <table className="table mb-0">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span className="badge bg-primary">Active</span>
+                          </td>
+                          <td>Active</td>
+                          <td className="text-end">54.5%</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span className="badge bg-success">Inactive</span>
+                          </td>
+                          <td>Inactive</td>
+                          <td className="text-end">28.0%</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
           </Row>
+
+          
         </Container>
       </div>  
     </React.Fragment>
