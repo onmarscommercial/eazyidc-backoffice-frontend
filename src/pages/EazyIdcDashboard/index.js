@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { MetaTags } from "react-meta-tags";
-import { Container, Row, Col, Card, CardBody } from "reactstrap";
+import { Container, Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 import { Link, useHistory } from "react-router-dom";
 
 import Salesdonut from "../AllCharts/apex/salesdonut";
+import ActivePieChart from "../EazyIdcChart/chartjs/ActivePieChart";
 
 import "chartist/dist/scss/chartist.scss";
 
@@ -161,6 +162,36 @@ const EazyIdcDashboard = () => {
                       </tbody>
                     </table>
                   </div>
+                </CardBody>
+              </Card>
+            </Col>
+
+            <Col xl={3}>
+              <Card>
+                <CardBody>
+                  <CardTitle className="h4 mb-4">Active Server</CardTitle>
+                  <Row className="justify-content-center">
+                    <Col sm={4}>
+                      <div className="text-center">
+                        <h5 className="mb-0 font-size-20"></h5>
+                        <p className="text-muted"></p>
+                      </div>
+                    </Col>
+                    <Col sm={4}>
+                      <div className="text-center">
+                        <h5 className="mb-0 font-size-20"></h5>
+                        <p className="text-muted"></p>
+                      </div>
+                    </Col>
+                    <Col sm={4}>
+                      <div className="text-center">
+                        <h5 className="mb-0 font-size-20"></h5>
+                        <p className="text-muted"></p>
+                      </div>
+                    </Col>
+                  </Row>
+
+                  <ActivePieChart />
                 </CardBody>
               </Card>
             </Col>
