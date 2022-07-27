@@ -138,7 +138,7 @@ const EazyIdcDashboard = () => {
             <Col xl={3}>
               <Card>
                 <CardBody>
-                  <h4 className="card-title mb-4">Server Active</h4>
+                  <h4 className="card-title mb-4">Active Server</h4>
                   <div id="ct-donut" className="ct-chart wid pt-4">
                     <Salesdonut />
                   </div>
@@ -166,27 +166,21 @@ const EazyIdcDashboard = () => {
               </Card>
             </Col>
 
-            <Col xl={3}>
+            <Col xl={6}>
               <Card>
                 <CardBody>
                   <CardTitle className="h4 mb-4">Active Server</CardTitle>
                   <Row className="justify-content-center">
                     <Col sm={4}>
                       <div className="text-center">
-                        <h5 className="mb-0 font-size-20"></h5>
-                        <p className="text-muted"></p>
+                        <h5 className="mb-0 font-size-20">1234</h5>
+                        <p className="text-muted">Activated</p>
                       </div>
                     </Col>
                     <Col sm={4}>
                       <div className="text-center">
-                        <h5 className="mb-0 font-size-20"></h5>
-                        <p className="text-muted"></p>
-                      </div>
-                    </Col>
-                    <Col sm={4}>
-                      <div className="text-center">
-                        <h5 className="mb-0 font-size-20"></h5>
-                        <p className="text-muted"></p>
+                        <h5 className="mb-0 font-size-20">23</h5>
+                        <p className="text-muted">Deactivated</p>
                       </div>
                     </Col>
                   </Row>
@@ -197,7 +191,15 @@ const EazyIdcDashboard = () => {
             </Col>
           </Row>
 
-          
+          <Row>
+            <Col xl={3}>
+              <Card>
+                <CardBody>
+                  <h4 className="card-title mb-4">Problem</h4>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
         </Container>
       </div>  
     </React.Fragment>
